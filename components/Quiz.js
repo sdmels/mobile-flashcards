@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Platform } from 'react-native'
+import { Platform, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import { clearLocalNotification, setLocalNotification } from '../utils/helpers'
 import styled from 'styled-components/native'
@@ -245,7 +245,7 @@ class Quiz extends Component {
           <GroupContainerView>
             <ProgressText>Score: {correct <= 0 ? 0 : correct}/{numberOfQuestions}</ProgressText>
           </GroupContainerView>
-          <GroupContainerView>
+          <GroupContainerView style={style.bottomSpace}>
             <RestartBtn onPress={this.restart}>
               <ReturnBtnText>Restart Quiz</ReturnBtnText>
             </RestartBtn>
@@ -266,7 +266,7 @@ class Quiz extends Component {
             {showAnswer === false ? <AnswerBtn>Answer</AnswerBtn> : <AnswerText>{answerText}</AnswerText>}
           </AnswerContainer>
         </GroupContainerView>
-        <GroupContainerView>
+        <GroupContainerView style={style.bottomSpace}>
           <CorrectBtn onPress={this.handleCorrect}>
             <ButtonText>Correct</ButtonText>
           </CorrectBtn>
@@ -278,6 +278,12 @@ class Quiz extends Component {
     )
   }
 }
+
+const style = StyleSheet.create({
+  bottomSpace: {
+    marginBottom: 40
+  }
+})
 
 function mapStateToProps (decks, { navigation }) {
   const title = navigation.state.params.title

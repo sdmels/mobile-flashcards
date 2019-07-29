@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Platform } from 'react-native'
+import { Platform, View } from 'react-native'
 import { connect } from 'react-redux'
 import { addDeck } from '../actions'
 import { addNewDeck } from '../utils/api'
@@ -7,7 +7,7 @@ import styled from 'styled-components/native'
 
 const ContainerView = styled.View`
   flex: 1;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   background-color: #FFF;
 `
@@ -18,9 +18,9 @@ const TitleText = styled.Text`
   font-weight: bold;
   text-align: center;
   color: #004346
-`
+  `
 
-const TitleInput = styled.TextInput`
+  const TitleInput = styled.TextInput`
   background-color: #fff;
   height: 45px;
   width: 300px;
@@ -29,11 +29,11 @@ const TitleInput = styled.TextInput`
   padding-left: 10px;
   margin-bottom: 10px;
   padding: 14px;
+  align-self: center
   `
 
   const CreateDeckBtn = Platform.OS === 'ios'
   ? styled.TouchableOpacity`
-  margin-top: 300px;
   height: 45px;
   width: 250px;
   justify-content: center;
@@ -41,9 +41,9 @@ const TitleInput = styled.TextInput`
   border-radius: 4px;
   background-color: #20c58a;
   padding: 14px;
+  margin-bottom: 20px
   `
   : styled.TouchableOpacity`
-  margin-top: 200px;
   height: 45px;
   width: 250px;
   justify-content: center;
@@ -51,6 +51,7 @@ const TitleInput = styled.TextInput`
   border-radius: 4px;
   background-color: #20c58a;
   padding: 14px;
+  margin-bottom: 20px
 `
 
 const CreateDeckText = styled.Text`
@@ -105,15 +106,15 @@ class AddDeck extends Component {
   render() {
     return (
       <ContainerView>
-        <TitleText>What is the title of your new deck?</TitleText>
-        <TitleInput
-          placeholder='Deck Title'
-          value={this.state.title}
-          onChangeText={this.handleChange}
-        />
-        <CreateDeckBtn
-          onPress={this.addDeck}
-        >
+        <View>
+          <TitleText>What is the title of your new deck?</TitleText>
+          <TitleInput
+            placeholder='Deck Title'
+            value={this.state.title}
+            onChangeText={this.handleChange}
+          />
+        </View>
+        <CreateDeckBtn onPress={this.addDeck}>
           <CreateDeckText>Create Deck</CreateDeckText>
         </CreateDeckBtn>
       </ContainerView>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { TouchableOpacity } from 'react-native'
+import { TouchableOpacity, StyleSheet } from 'react-native'
 import { connect } from 'react-redux'
 import { removeDeck } from '../actions'
 import { deleteDeck } from '../utils/api'
@@ -122,7 +122,7 @@ class DeckContainer extends Component {
           </TitleView>
         </GroupContainerView>
 
-        <GroupContainerView>
+        <GroupContainerView style={style.bottomSpace}>
           <AddCardBtn onPress={this.toAddCard}>
             <ButtonText>Add Card</ButtonText>
           </AddCardBtn>
@@ -139,6 +139,12 @@ class DeckContainer extends Component {
     )
   }
 }
+
+const style = StyleSheet.create({
+  bottomSpace: {
+    marginBottom: 40
+  }
+})
 
 function mapStateToProps (decks, { navigation } ) {
   const title = navigation.state.params.title
