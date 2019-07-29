@@ -1,6 +1,8 @@
 import React from 'react'
 import { View } from 'react-native'
 
+import { setLocalNotification } from './utils/helpers'
+
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import reducer from './reducers'
@@ -10,6 +12,9 @@ import AppNavigation from './components/AppNavigation'
 import { heading } from './utils/colors'
 
 export default class App extends React.Component {
+  componentDidMount() {
+    setLocalNotification()
+  }
   render() {
     return (
       <Provider store={createStore(reducer)}>

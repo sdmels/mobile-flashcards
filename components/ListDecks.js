@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { ScrollView } from 'react-native'
 import { connect } from 'react-redux'
 import Deck from './Deck'
 import { getDecks } from '../utils/api'
@@ -39,14 +40,16 @@ class ListDecks extends Component {
     }
 
     return (
-      <ContainerView>
-        {Object.keys(decks).map((deck) => (
-            <Deck
-              key={deck}
-              title={deck}
-            />
-        ))}
-      </ContainerView>
+      <ScrollView>
+        <ContainerView>
+          {Object.keys(decks).map((deck) => (
+              <Deck
+                key={deck}
+                title={deck}
+              />
+          ))}
+        </ContainerView>
+      </ScrollView>
     )
   }
 }
