@@ -54,4 +54,4 @@ yarn start
 
 A menu appears in the terminal with options. Select the appropriate option e.g. `i` to launch the iOS XCode simulator or scan the QR code in the Expo App
 
-You can also download and view the app on your phone by using the Expo app. This app is developed for `iOS` and `android`. Tested on xcode iOS simulator and by scanning the QR code on android phone.
+You can also download and view the app on your phone by using the Expo app. This app is developed for `iOS` and `android`. Tested on iOS simulator and on a actual Android phone by using an Expo app (scanning the QR code).
